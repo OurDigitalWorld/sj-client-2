@@ -20,6 +20,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      host: 'http://167.99.186.245:3000',
+      namespace: '',
+      api_key: 'ko5q9qDfKtGwKzhaFivE',
+      searchFields: 'default',
+      resultFields: 'all',
+      primaryKey: 'record_id'
     }
   };
 
