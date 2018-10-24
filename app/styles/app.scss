@@ -1,0 +1,51 @@
+$theme-colors: (
+  "primary" : purple
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+img.thumbnail {
+  max-width: 128px;
+  height: auto;
+}
+img.placeholder {
+  content: url('/assets/image_placeholder.gif');
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.7rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+.vertical-center {
+  display:flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: center;
+}
+/*reduce font sizes on facet filter texts*/
+.search-filter-item, .show-more {
+  font-size: 0.9rem;
+}
+/*styling for displaying an array as csv content*/
+.csv {
+  padding: 0;
+  display: inline;
+  list-style: none;
+  li {display: inline};
+  li:not(:last-of-type) {
+    &.text:after, &.links > a:after {content: ', ';}
+  }
+}
+
+.large-thumbnail {
+  min-width: 100%;
+  height: auto;
+}
+.fuzzy-search-links a.active {
+  color: black;
+  text-decoration: underline;
+}

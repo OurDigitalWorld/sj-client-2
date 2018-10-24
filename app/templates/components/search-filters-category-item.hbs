@@ -1,0 +1,6 @@
+
+{{#if isActiveFilter}}
+  {{displayFilter}} : {{format-number value}} {{#link-to (query-params and=removeItemParam)}}({{t "remove"}}){{/link-to}}
+{{else}}
+  {{#link-to (query-params and=addItemParam)}}{{displayFilter}}{{/link-to}} : {{format-number value}}
+{{/if}}

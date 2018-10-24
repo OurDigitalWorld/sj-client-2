@@ -1,0 +1,15 @@
+{{#if isEmpty}}
+  {{t "empty"}}
+{{else}}
+  <ul class="csv">
+    {{#each data as |field|}}
+      <li class={{if filterFor "links" "text"}}>
+        {{#if filterFor}}
+          {{#link-to "search" (query-params and=(get-obj filterFor field) page=1)}}{{field}}{{/link-to}}
+        {{else}}
+          {{field}}
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

@@ -1,0 +1,29 @@
+<li class="page-item {{if isFirstPage "disabled"}}">
+  {{#link-to
+    (query-params page=previousPage)
+    disabled=isFirstPage
+    class="page-link"
+  }}
+    <span class="aria-hidden">{{fa-icon "angle-double-left"}}</span>
+    <span class="sr-only">{{t "previous"}}</span>
+  {{/link-to}}
+</li>
+<li class="page-item {{if isFirstPage "active"}}">
+  {{#link-to (query-params page=1) class="page-link"}}{{format-number 1}}{{/link-to}}
+</li>
+{{#if displayEllipse}}
+  <li class="page-item disabled"><a class="page-link">...</a></li>
+{{/if}}
+{{#each paginationLinks as |link|}}
+  <li class="page-item {{if link.isActive "active"}}">
+    {{#link-to (query-params page=link.page) class="page-link"}}
+      {{format-number link.page}}
+    {{/link-to}}
+  </li>
+{{/each}}
+<li class="page-item {{if isLastPage "disabled"}}">
+  {{#link-to (query-params page=nextPage) disabled=isLastPage class="page-link"}}
+    <span class="aria-hidden">{{fa-icon "angle-double-right"}}</span>
+    <span class="sr-only">{{t "next"}}</span>
+  {{/link-to}}
+</li>

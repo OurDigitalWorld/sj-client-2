@@ -1,0 +1,7 @@
+<ul class="search-filter-category list-unstyled pb-3">
+  <strong>{{t facet}}</strong>
+  {{#each-in truncatedData as |filter value|}}
+    {{search-filters-category-item facet filter value and=and}}
+  {{/each-in}}
+  <li class="show-more"><a class="text-secondary" href="" {{action "toggleShowAll"}}>{{if showAll (t "see less") (t "see more")}}</a></li>
+</ul>

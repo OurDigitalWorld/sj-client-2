@@ -1,0 +1,23 @@
+<main>
+  <h2>{{display-title model.title lang=hl}}</h2>
+  <dl class="metadata">
+    <dt>{{t "display_content_partner"}}</dt>
+    <dd>
+      {{#link-to
+        "search"
+        (query-params and=(get-obj "display_content_partner" model.display_content_partner))
+      }}
+        {{model.display_content_partner}}
+      {{/link-to}}
+    </dd>
+    <dt>{{t "creator"}}</dt><dd>{{display-csv model.creator}}</dd>
+    <dt>{{t "description"}}</dt><dd>{{safe-text model.description}}</dd>
+    <dt>{{t "date"}}</dt><dd>{{safe-text model.date}}</dd>
+    <dt>{{t "subject"}}</dt><dd>{{display-csv model.subject filterFor="subject"}}</dd>
+    <dt>{{t "publisher"}}</dt><dd>{{display-csv model.publisher filterFor="publisher"}}</dd>
+  </dl>
+  <h3>{{t "files"}}</h3>
+  {{#each model.attachments as |attachment|}}
+    {{result-attachment attachment}}
+  {{/each}}
+</main>

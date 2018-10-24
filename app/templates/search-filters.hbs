@@ -1,0 +1,12 @@
+<ul class="search-filters list-unstyled">
+  {{#each-in model.meta.facets as |facet data|}}
+    <li class="search-filter">
+      {{search-filters-category facet data and=and}}
+    </li>
+  {{/each-in}}
+  {{#each-in additionalActiveFilters as |facet data|}}
+    <li class="search-filter">
+      {{search-filters-category facet data and=and}}
+    </li>
+  {{/each-in}}
+</ul>

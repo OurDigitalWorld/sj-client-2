@@ -5,7 +5,8 @@ module.exports = function(environment) {
     modulePrefix: 'sj-client-2',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'router-scroll',
+    historySupportMiddleware: true,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -25,7 +26,12 @@ module.exports = function(environment) {
       api_key: 'ko5q9qDfKtGwKzhaFivE',
       searchFields: 'default',
       resultFields: 'all',
-      primaryKey: 'record_id'
+      primaryKey: 'record_id',
+      facets: 'display_content_partner,publisher,subject',
+      facets_per_page: 50
+    },
+    fastboot: {
+      hostWhitelist: [/^localhost:\d+$/, '138.197.131.38:3000']
     }
   };
 

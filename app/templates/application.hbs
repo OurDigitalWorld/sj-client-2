@@ -1,3 +1,27 @@
-<h1>SJ Client version 2</h1>
-
-{{outlet}}
+<div class="container">
+  <header class="row">
+    <div class="title col-3">
+      {{#link-to
+        "search"
+        (query-params page=1 per_page=20 and="" text="" current-when="search")
+      }}
+        <h1>{{t "title"}}</h1>
+      {{/link-to}}
+    </div>
+    <div class="search-bar vertical-center col-9">
+      {{outlet "search-bar"}}
+    </div>
+  </header>
+  <div class="body-container row">
+    <aside class="filters col-3">
+      {{outlet "search-filters"}}
+    </aside>
+    <div class="body-content col-9">
+      {{outlet}}
+    </div>
+  </div>
+  <footer>
+    {{#link-to (query-params hl="en-us")}}English{{/link-to}} |
+    {{#link-to (query-params hl="fr-fr")}}Français{{/link-to}}
+  </footer>
+</div>
