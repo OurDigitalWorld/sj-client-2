@@ -1,4 +1,4 @@
-<ul class="search-filters list-unstyled">
+<ul class="search-filters list-unstyled {{if isVisible "visible"}}">
   {{#each-in model.meta.facets as |facet data|}}
     <li class="search-filter">
       {{search-filters-category facet data and=and}}
@@ -10,3 +10,11 @@
     </li>
   {{/each-in}}
 </ul>
+<div class="toggle">
+  <button type="button" class="btn btn-block mb-3" {{action "toggleVisible"}}>
+    {{if isVisible (t "hide filters") (t "show filters")}}
+    {{#if activeFiltersCount}}
+      <span class="badge badge-primary">{{activeFiltersCount}}</span>
+    {{/if}}
+  </button>
+</div>

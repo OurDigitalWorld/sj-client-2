@@ -4,13 +4,28 @@ $theme-colors: (
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-img.thumbnail {
-  max-width: 128px;
-  height: auto;
+aside.filters .toggle {
+  display: none;
 }
-img.placeholder {
-  content: url('/assets/image_placeholder.gif');
+
+img {
+  &.thumbnail {
+    max-width: 128px;
+    height: auto;
+  }
+  &.large-thumbnail {
+    width: auto;
+    height: auto;
+  }
+  &.placeholder {
+    content: url('/assets/image_placeholder.gif');
+  }
 }
+.result-thumbnail{
+  display: flex;
+  justify-content: center;
+}
+/*makes heading elements slightly smaller*/
 h1 {
   font-size: 2rem;
 }
@@ -20,6 +35,7 @@ h2 {
 h3 {
   font-size: 1.4rem;
 }
+/*centering content vertically*/
 .vertical-center {
   display:flex;
   flex-direction: column;
@@ -40,12 +56,20 @@ h3 {
     &.text:after, &.links > a:after {content: ', ';}
   }
 }
-
-.large-thumbnail {
-  min-width: 100%;
-  height: auto;
-}
+/*adds underline to active fuzzy search option */
 .fuzzy-search-links a.active {
   color: black;
   text-decoration: underline;
+}
+@include media-breakpoint-down(md) {
+  aside.filters, .title, .search-bar, .body-content {
+    min-width: 100%;
+  }
+  aside.filters .search-filters {
+    display: none;
+    &.visible{display:block;}
+  }
+  aside.filters .toggle {
+    display:block;
+  }
 }

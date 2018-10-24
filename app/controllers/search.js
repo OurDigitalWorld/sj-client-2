@@ -29,6 +29,16 @@ export default Controller.extend({
     {value: 50},
     {value: 100}
   ];}),
+  //number of active filters
+  activeFiltersCount: computed('and', function(){
+    let i = 0;
+    for(const property in this.and){
+      if (this.and.hasOwnProperty(property)){
+        i+= this.and[property].length;
+      }
+    }
+    return i;
+  }),
   //things that are being filtered that aren't normally displayed facets.
   additionalActiveFilters: computed('and', 'model.meta.facets', function(){
     const and = this.and;
@@ -41,6 +51,8 @@ export default Controller.extend({
     });
     return output;
   }),
+  //used to toggle visibility of search filters on mobile
+  isVisible: false,
   actions: {
     //for updating a single param---accepts the param name and the param value
     updateParam(key, value){
@@ -62,6 +74,9 @@ export default Controller.extend({
           }
         }
       }
+    },
+    toggleVisible(){
+      this.toggleProperty('isVisible');
     }
   }
 });
