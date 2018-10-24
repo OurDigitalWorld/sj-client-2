@@ -4,13 +4,11 @@ import ENV from '../config/environment';
 export default Route.extend({
   model(params){
     //USER EDITABLE PARAMS (from queryParams)
-    for (const key in params){
-      if (!params.hasOwnProperty(key)) {continue;}
-      //removes any params that haven't been assigned a value
+    Object.keys(params).forEach((key)=>{
       if (params[key] === '' || params[key] === null || params[key].length === 0){
         delete params[key];
       }
-    }
+    });
     //SYSTEM-BASED PARAMS
     params.api_key = ENV.APP.api_key;
     params.fields=ENV.APP.searchFields;

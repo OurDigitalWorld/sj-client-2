@@ -32,11 +32,7 @@ export default Controller.extend({
   //number of active filters
   activeFiltersCount: computed('and', function(){
     let i = 0;
-    for(const property in this.and){
-      if (this.and.hasOwnProperty(property)){
-        i+= this.and[property].length;
-      }
-    }
+    Object.keys(this.and).forEach((key)=>{i+= this.and[key].length});
     return i;
   }),
   //things that are being filtered that aren't normally displayed facets.
@@ -61,8 +57,7 @@ export default Controller.extend({
     //for updating multiple params simultaneously---accepts an object where the properties are params and the property values are the data to be updated
     updateParams(obj){
       if (this.get('isLoading') === false){
-        for (const key in obj){
-          if (!obj.hasOwnProperty(key)) {continue;}
+        Object.keys(obj).forEach((key)=>{
           this.set(key, obj[key]);
           //if fuzzy search is enabled, update the search to use fuzzy text
           if (key === 'text' && this.fuzzySearch === true){
@@ -72,7 +67,7 @@ export default Controller.extend({
           if (key === 'and'){
             this.notifyPropertyChange(key);
           }
-        }
+        });
       }
     },
     toggleVisible(){

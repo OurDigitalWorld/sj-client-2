@@ -20,13 +20,11 @@ export default Component.extend({
     facetSet.delete(this.filter);
     const facetArray = Array.from(facetSet);
     let output = Object.assign({}, this.and, {[this.facet]:facetArray});
-    for (const key in output){
-      if (output.hasOwnProperty(key)){
-        if(output[key] === '' || output[key] === null || output[key].length === 0){
-          delete output[key];
-        }
+    Object.keys(output).forEach(function(key){
+      if(output[key] === '' || output[key] === null || output[key].length === 0){
+        delete output[key];
       }
-    }
+    });
     return output;
   }),
   isActiveFilter: computed('facet', 'filter', 'and', function(){
