@@ -11,10 +11,10 @@ const notifier = new FastBootWatchNotifier({
   }
 });
 
-let server = new FastBootAppServer({
+let fastbootServer = new FastBootAppServer({
   distPath,
   notifier,
   gzip: true, // Optional - Enables gzip compression.
 });
 
-server.start();
+fastbootServer.start();
