@@ -31,7 +31,7 @@ module.exports = function(environment) {
       facets_per_page: 50
     },
     fastboot: {
-      hostWhitelist: [/^localhost:\d+$/, '138.197.131.38:3000']
+      hostWhitelist: [/^localhost:\d+$/, '167.99.186.245:3000', '138.197.131.38:3000', '127.0.0.1:3000']
     }
   };
 
