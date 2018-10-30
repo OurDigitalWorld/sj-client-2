@@ -3,7 +3,7 @@
   {{#link-to (query-params fuzzySearch=false text=getExactText)}}{{t "match exact terms only"}}{{/link-to}}
 </div>
 <form method="post" {{action "updateParams" searchBarParams on="submit"}}>
-  <div class="input-group mb-3" role="search" aria-label="search">
+  <div class="input-group mb-3" role="search" aria-label={{t "search"}}>
     <label for="search-bar" class="sr-only">{{t "enter search text"}}</label>
     {{input
       disabled=isLoading
