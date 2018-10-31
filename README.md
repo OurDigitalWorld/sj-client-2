@@ -1,7 +1,7 @@
 # sj-client-2
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+sj-client-2 is a front-end web client which provides a search engine for accessing [DigitalNZ's Supplejack](http://digitalnz.github.io/supplejack/) API.
+This client is built using the [Ember.js](https://emberjs.com/) (3.5) framework .
 
 ## Prerequisites
 
@@ -18,15 +18,20 @@ You will need the following things properly installed on your computer.
 * `cd sj-client-2`
 * `npm install`
 
+## Setup
+
+In order to utilise this front-end web client, it must be pointed at an active Supplejack API service.
+
+* rename `environment.build` to `environment.js`
+* in `environment.js`:
+  * customise `APP.host`, `fastboot.hostWhitelist` to point to your Supplejack API url
+  * customise `App.api_key` to use your Supplejack API key.
+
 ## Running / Development
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
 
 ### Running Tests
 
@@ -46,12 +51,27 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+This client is being deployed via scp with a node cli script. To deploy this app the same way:
+
+* customise the `deploy` cli script in `package.json` to ensure that it is pointing at the correct username, server, and directory.
+* use `npm run deploy` to deploy.
+
+If it's the first deploy:
+
+* `ssh` into your web server and navigate to the web directory
+* Ensure `screen` is installed on your web server
+* `screen -S fastboot`
+* `sudo node fastboot-server.js`
+* detach screen
+
+
+Depending on your need, other deployment methods could be used instead.
 
 ## Further Reading / Useful Links
 
 * [ember.js](https://emberjs.com/)
 * [ember-cli](https://ember-cli.com/)
+* [Supplejack](http://digitalnz.github.io/supplejack/)
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)

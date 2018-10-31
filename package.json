@@ -2,7 +2,7 @@
   "name": "sj-client-2",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for sj-client-2 goes here",
+  "description": "A search engine web front-end for your Supplejack API",
   "repository": "",
   "license": "MIT",
   "author": "",
@@ -16,7 +16,7 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
-    "deploy": "ember build --environment=production && scp -r dist govwebuser@138.197.131.38:/var/www/html/"
+    "deploy": "ember build --environment=production && scp -r dist username@web-client-host-name:/path/to/web/dir/"
   },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
