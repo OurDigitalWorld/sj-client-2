@@ -24,7 +24,7 @@ module.exports = function(environment) {
       host: 'http://167.99.186.245:3000',
       namespace: '',
       api_key: 'ko5q9qDfKtGwKzhaFivE',
-      searchFields: 'default',
+      searchFields: 'default,category,attachments',
       resultFields: 'all',
       primaryKey: 'record_id',
       facets: 'display_content_partner,publisher,subject',

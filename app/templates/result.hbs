@@ -16,8 +16,35 @@
     <dt>{{t "subject"}}</dt><dd>{{display-csv model.subject filterFor="subject"}}</dd>
     <dt>{{t "publisher"}}</dt><dd>{{display-csv model.publisher filterFor="publisher"}}</dd>
   </dl>
-  <h3>{{t "files"}}</h3>
-  {{#each model.attachments as |attachment|}}
-    {{result-attachment attachment}}
-  {{/each}}
+
+  {{#if isSerial}}
+    <h3>{{t "issues"}}</h3>
+    {{t
+      "issues page number"
+      pageNumber=issues.meta.page
+      resultsNumber=issues.meta.result_count
+    }}
+    ({{t "issues per page" perPage=100}})
+  <div class="card-deck">
+    {{#each issues as |issue|}}
+      <div class="card border-light issue-card card-link">
+        <a class="card-link" href="{{parse-url issue.attachments.[0].href}}"></a>
+        <div class="card-header">
+          <a href={{parse-url issue.attachments.[0].href}}>{{issue.attachments.[0].title}}</a>
+        </div>
+        {{safe-img src=(parse-url issue.thumb_url) class="card-img-bottom"}}
+      </div>
+    {{/each}}
+  </div>
+    <nav aria-label={{t "page navigation"}}>
+      {{search-pagination meta=issues.meta}}
+    </nav>
+  {{else}}
+    <h3>{{t "files"}}</h3>
+    {{#each model.attachments as |attachment|}}
+      {{result-attachment attachment}}
+    {{/each}}
+
+  {{/if}}
+
 </main>

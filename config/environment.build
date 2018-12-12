@@ -24,7 +24,7 @@ module.exports = function(environment) {
       host: '/*supplejack-url*/',
       namespace: '',
       api_key: '/*supplejack-api-key*/',
-      searchFields: 'default',
+      searchFields: 'default,category,attachments',
       resultFields: 'all',
       primaryKey: 'record_id',
       facets: 'display_content_partner,publisher,subject',

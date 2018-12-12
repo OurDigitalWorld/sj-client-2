@@ -16,7 +16,7 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
-    "deploy": "ember build --environment=production && scp -r dist username@web-client-host-name:/path/to/web/dir/"
+    "deploy": "ember build --environment=production && scp -r dist govwebuser@138.197.131.38:/var/www/html/"
   },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",

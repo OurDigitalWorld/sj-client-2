@@ -10,5 +10,7 @@ export default DS.Model.extend({
   category: DS.attr(),
   publisher: DS.attr(),
   thumb_url: DS.attr(),
-  attachments: DS.attr()
+  attachments: DS.attr(),
+  source_record_id: DS.attr(),
+  parent_sj_id: DS.attr()
 });

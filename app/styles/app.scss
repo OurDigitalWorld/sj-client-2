@@ -1,16 +1,16 @@
 $theme-colors: (
   "primary" : purple
 );
+$thumbnail-width: 128px;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 aside.filters .toggle {
   display: none;
 }
-
 img {
   &.thumbnail {
-    max-width: 128px;
+    max-width: $thumbnail-width;
     height: auto;
   }
   &.large-thumbnail {
@@ -60,6 +60,24 @@ h3 {
 .fuzzy-search-links a.active {
   color: black;
   text-decoration: underline;
+}
+/*makes issue cards the correct size*/
+.issue-card {
+  min-width: $thumbnail-width;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+/*makes entire card into a hyperlink. Use with an anchor that is the direct child of the card*/
+a.card-link {
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.card.card-link {
+  &:hover{
+    @extend .border-primary;
+  }
 }
 @include media-breakpoint-down(md) {
   aside.filters, .title, .search-bar, .body-content {

@@ -14,13 +14,8 @@ export default Route.extend({
     params.fields=ENV.APP.searchFields;
     params.facets=ENV.APP.facets;
     params.facets_per_page = ENV.APP.facets_per_page;
-/*
-    //MOVE TO FACET FILTER COMPONENT?
-    const facets = this.controllerFor('search').get('recordFacets');
-    if(facets.length > 0){
-      params.facets = facets;
-      params.facets_per_page = 50; //can go up to 100
-    }*/
+    params.without = {};
+    params.without.category = ['Serial']; //prevents full serials from showing up in the search.
     //MODEL RETURN
     //fetches the model from the API with given params
     return this.get('store').query('record', params);

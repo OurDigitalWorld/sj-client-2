@@ -1,8 +1,9 @@
-{{#link-to "result" record.id class="mr-3"}}
+
+{{#link-to "result" linkAddress class="mr-3"}}
   {{safe-img src=record.thumb_url class="thumbnail"}}
 {{/link-to}}
 <div class="search-text media-body">
-  {{#link-to "result" record.id}}<h3 class="title mt-0">{{display-title record.title}}</h3>{{/link-to}}
+  <h3 class="title mt-0">{{#if isIssue}}{{record.attachments.[0].title}} <em>{{t "of"}}</em> {{/if}}{{#link-to "result" linkAddress}}{{display-title record.title}}{{/link-to}}</h3>
   <p class="creator"><strong>{{t "by"}} </strong>{{record.creator}}</p>
   <p class="description">{{record.description}}</p>
 </div>
