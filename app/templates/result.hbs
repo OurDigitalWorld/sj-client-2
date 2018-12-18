@@ -25,17 +25,17 @@
       resultsNumber=issues.meta.result_count
     }}
     ({{t "issues per page" perPage=100}})
-  <div class="card-deck">
-    {{#each issues as |issue|}}
-      <div class="card border-light issue-card card-link">
-        <a class="card-link" href="{{parse-url issue.attachments.[0].href}}"></a>
-        <div class="card-header">
-          <a href={{parse-url issue.attachments.[0].href}}>{{issue.attachments.[0].title}}</a>
+    <div class="card-deck">
+      {{#each issues as |issue|}}
+        <div class="card border-light issue-card card-link">
+          <a class="card-link" href={{parse-url issue.attachments.[0].href}}></a>
+          <div class="card-header">
+            <a href={{parse-url issue.attachments.[0].href}}>{{issue.attachments.[0].title}}</a>
+          </div>
+          {{safe-img src=(parse-url issue.thumb_url) class="card-img-bottom"}}
         </div>
-        {{safe-img src=(parse-url issue.thumb_url) class="card-img-bottom"}}
-      </div>
-    {{/each}}
-  </div>
+      {{/each}}
+    </div>
     <nav aria-label={{t "page navigation"}}>
       {{search-pagination meta=issues.meta}}
     </nav>
