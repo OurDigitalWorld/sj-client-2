@@ -12,5 +12,7 @@ export default DS.Model.extend({
   thumb_url: DS.attr(),
   attachments: DS.attr(),
   source_record_id: DS.attr(),
-  parent_sj_id: DS.attr()
+  parent_sj_id: DS.attr(),
+  serial_set: DS.attr(),
+  serial_order: DS.attr()
 });

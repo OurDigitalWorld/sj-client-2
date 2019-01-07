@@ -64,6 +64,7 @@ h3 {
 /*makes issue cards the correct size*/
 .issue-card {
   min-width: $thumbnail-width;
+  max-width: $thumbnail-width;
   margin-bottom: 15px;
   margin-top: 15px;
 }
