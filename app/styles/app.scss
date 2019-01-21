@@ -80,6 +80,9 @@ a.card-link {
     @extend .border-primary;
   }
 }
+.card.card-link .card-footer{
+  z-index:2;
+}
 @include media-breakpoint-down(md) {
   aside.filters, .title, .search-bar, .body-content {
     min-width: 100%;

@@ -16,7 +16,6 @@
     <dt>{{t "subject"}}</dt><dd>{{display-csv model.subject filterFor="subject"}}</dd>
     <dt>{{t "publisher"}}</dt><dd>{{display-csv model.publisher filterFor="publisher"}}</dd>
   </dl>
-
   {{#if isSerial}}
     <h3>{{t "issues"}}</h3>
     {{t
@@ -25,41 +24,32 @@
       resultsNumber=meta.result_count
     }}
     ({{t "issues per page" perPage=100}})
-    {{#if sortedIssuesEng}}
+    {{#if sortedIssuesAll}}
       <div class="card-deck">
-        {{#each sortedIssuesEng as |issue|}}
+        {{#each sortedIssuesAll as |issue|}}
           <div class="card border-light issue-card card-link">
             <a class="card-link" href={{parse-url issue.attachments.[0].href}}></a>
             <div class="card-header">
               <a href={{parse-url issue.attachments.[0].href}}>{{issue.attachments.[0].title}}</a>
             </div>
             {{safe-img src=(parse-url issue.thumb_url) class="card-img-bottom"}}
-          </div>
-        {{/each}}
-      </div>
-    {{/if}}
-    {{#if sortedIssuesFre}}
-      <div class="card-deck">
-        {{#each sortedIssuesFre as |issue|}}
-          <div class="card border-light issue-card card-link">
-            <a class="card-link" href={{parse-url issue.attachments.[0].href}}></a>
-            <div class="card-header">
-              <a href={{parse-url issue.attachments.[0].href}}>{{issue.attachments.[0].title}} <span class="badge badge-primary">fre</span></a>
-            </div>
-            {{safe-img src=(parse-url issue.thumb_url) class="card-img-bottom"}}
+            {{#if issue.attachments.[1]}}
+              <div class="card-footer">
+                <a href={{parse-url issue.attachments.[1].href}}>{{t "french version"}}</a>
+              </div>
+            {{/if}}
           </div>
         {{/each}}
       </div>
     {{/if}}
     <nav aria-label={{t "page navigation"}}>
-      {{#if meta}}{{log meta}}{{search-pagination meta=meta}}{{/if}}
+      {{#if meta}}{{search-pagination meta=meta}}{{/if}}
     </nav>
   {{else}}
     <h3>{{t "files"}}</h3>
     {{#each model.attachments as |attachment|}}
       {{result-attachment attachment}}
     {{/each}}
-
   {{/if}}
 
 </main>

@@ -14,7 +14,6 @@
 {{#if displayEllipse}}
   <li class="page-item disabled"><a class="page-link">...</a></li>
 {{/if}}
-{{log paginationLinks}}
 {{#each paginationLinks as |link|}}
   <li class="page-item {{if link.isActive "active"}}">
     {{#link-to (query-params page=link.page) class="page-link"}}
