@@ -35,12 +35,29 @@ h2 {
 h3 {
   font-size: 1.4rem;
 }
-/*centering content vertically*/
+/*flexbox justifications*/
 .vertical-center {
   display:flex;
   flex-direction: column;
   min-height: 100%;
   justify-content: center;
+}
+.horizontal-space-between{
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  justify-content: space-between;
+}
+.horizontal-centered{
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.bottom-padding {
+  position: relative;
+  top: -6px;
 }
 /*reduce font sizes on facet filter texts*/
 .search-filter-item, .show-more {

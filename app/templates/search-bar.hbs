@@ -1,6 +1,14 @@
-<div class="fuzzy-search-links">
-  {{#link-to (query-params fuzzySearch=true text=getFuzzyText)}}{{t "match similar terms"}}{{/link-to}}  |
-  {{#link-to (query-params fuzzySearch=false text=getExactText)}}{{t "match exact terms only"}}{{/link-to}}
+<div class="horizontal-space-between">
+  <div class="fuzzy-search-links">
+    {{#link-to (query-params fuzzySearch=true text=getFuzzyText)}}{{t "match similar terms"}}{{/link-to}}  |
+    {{#link-to (query-params fuzzySearch=false text=getExactText)}}{{t "match exact terms only"}}{{/link-to}}
+  </div>
+<div class="btn btn-light bottom-padding">
+  {{fa-icon "star"}} {{t "save-search"}}
+  {{#ember-tooltip event="click"}}
+    {{t "save-text"}}
+  {{/ember-tooltip}}
+</div>
 </div>
 <form method="post" {{action "updateParams" searchBarParams on="submit"}}>
   <div class="input-group mb-3" role="search" aria-label={{t "search"}}>

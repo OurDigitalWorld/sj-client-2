@@ -1,1 +1,17 @@
-<a href="" {{action "back"}}>{{fa-icon "angle-double-left"}} {{t "back to search results"}}</a>
+<div class="horizontal-space-between">
+  <a href="" {{action "back"}}>{{fa-icon "angle-double-left"}} {{t "back to search results"}}</a>
+  <div>
+    {{#link-to
+      "search"
+      (query-params page=1 per_page=20 and="" text="" current-when="search")
+    }}
+      {{fa-icon "search"}} {{t "start new search"}}
+    {{/link-to}}
+    <div class="btn btn-light">
+      {{fa-icon "star"}} {{t "save-result"}}
+      {{#ember-tooltip event="click"}}
+        {{t "save-text"}}
+      {{/ember-tooltip}}
+    </div>
+  </div>
+</div>

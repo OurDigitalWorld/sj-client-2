@@ -27,7 +27,7 @@ module.exports = function(environment) {
       searchFields: 'default,category,attachments',
       resultFields: 'all',
       primaryKey: 'record_id',
-      facets: 'display_content_partner,publisher,subject',
+      facets: 'publisher,subject',
       facets_per_page: 50
     },
     fastboot: {

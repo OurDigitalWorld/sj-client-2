@@ -1,1 +1,9 @@
-<div class="result-thumbnail">{{safe-img src=model.thumb_url class="large-thumbnail"}}</div>
+<div class="result-thumbnail">
+  {{safe-img src=model.thumb_url class="large-thumbnail"}}
+</div>
+<div class="horizontal-centered">
+  {{share-panel
+    buttons="fb,vk,twitter,linkedin,email,reddit"
+    title=(display-title model.title)
+  }}
+</div>
