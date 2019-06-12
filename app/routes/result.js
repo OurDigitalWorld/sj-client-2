@@ -15,7 +15,6 @@ export default Route.extend({
     const _this = this;
     const parent_id = model.get('source_record_id');
     const api_key = ENV.APP.api_key;
-
     //query params for returning just metadata
     const metaquery = {
       and:{parent_id, category},

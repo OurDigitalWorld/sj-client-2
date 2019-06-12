@@ -11,7 +11,7 @@ export default Route.extend({
     });
     //SYSTEM-BASED PARAMS
     params.api_key = ENV.APP.api_key;
-    params.fields=ENV.APP.searchFields;
+    params.fields=ENV.APP.searchFields+',source_record_id';
     params.facets=ENV.APP.facets;
     params.facets_per_page = ENV.APP.facets_per_page;
     params.and = {};
