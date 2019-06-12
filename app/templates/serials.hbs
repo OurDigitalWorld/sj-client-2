@@ -1,0 +1,18 @@
+<div>
+  <main>
+    <h2>{{t "serials list"}}</h2>
+    {{t
+      "page number"
+      pageNumber=model.meta.page
+      resultsNumber=model.meta.result_count
+    }}
+    {{t "results per page"}} 20
+    {{#each model as |item|}}
+      <hr>
+      {{search-result record=item}}
+    {{/each}}
+  </main>
+  <nav aria-label={{t "page navigation"}}>
+    {{search-pagination meta=model.meta}}
+  </nav>
+</div>

@@ -9,6 +9,12 @@
       {{search-filters-category facet data and=and}}
     </li>
   {{/each-in}}
+  <li class="search-filter">
+    <ul class="search-filter-category list-unstyled pb-3">
+      <strong>Serials:</strong>
+      <li class="search-filter-item">{{#link-to "serials"}}{{t "serials list"}}{{/link-to}}</li>
+    </ul>
+  </li>
 </ul>
 <div class="toggle">
   <button type="button" class="btn btn-block mb-3" {{action "toggleVisible"}}>

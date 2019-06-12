@@ -1,11 +1,11 @@
 <main>
   <h2>{{display-title model.title lang=hl}}</h2>
   <dl class="metadata">
-    {{#if model.creator}}<dt>{{t "creator"}}</dt><dd>{{display-csv model.creator}}</dd>{{/if}}
-    {{#if model.description}} <dt>{{t "description"}}</dt><dd>{{safe-text model.description}}</dd>{{/if}}
-    {{#if model.date}}<dt>{{t "date"}}</dt><dd>{{safe-text model.date}}</dd>{{/if}}
-    {{#if model.subject}}<dt>{{t "subject"}}</dt><dd>{{display-csv model.subject filterFor="subject"}}</dd>{{/if}}
-    {{#if model.publisher}}<dt>{{t "publisher"}}</dt><dd>{{display-csv model.publisher filterFor="publisher"}}</dd>{{/if}}
+    {{#if (value-exists model.creator)}}<dt>{{t "creator"}}</dt><dd>{{display-csv model.creator}}</dd>{{/if}}
+    {{#if (value-exists model.description)}} <dt>{{t "description"}}</dt><dd>{{safe-text model.description}}</dd>{{/if}}
+    {{#if (value-exists model.date)}}<dt>{{t "date"}}</dt><dd>{{safe-text model.date}}</dd>{{/if}}
+    {{#if (value-exists model.subject)}}<dt>{{t "subject"}}</dt><dd>{{display-csv model.subject filterFor="subject"}}</dd>{{/if}}
+    {{#if (value-exists model.publisher)}}<dt>{{t "publisher"}}</dt><dd>{{display-csv model.publisher filterFor="publisher"}}</dd>{{/if}}
   </dl>
   {{#if isSerial}}
     <h3>{{t "issues"}}</h3>
